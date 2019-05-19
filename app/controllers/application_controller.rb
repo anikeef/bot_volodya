@@ -4,7 +4,8 @@ class ApplicationController < ActionController::API
   def message
     case params["type"]
     when "confirmation"
-      render text: "#{ENV["VK_CONFIRM"]}"
+      render plain: "#{ENV["VK_CONFIRM"]}"
+      return
     when "message_new"
       user_id = params["object"]["from_id"]
       message = params["object"]["text"]
