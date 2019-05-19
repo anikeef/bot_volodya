@@ -1,7 +1,7 @@
 require "rest-client"
 
 class ApplicationController < ActionController::API
-  def request
+  def message
     case params["type"]
     when "confirmation"
       render text: "#{ENV["VK_CONFIRM"]}"

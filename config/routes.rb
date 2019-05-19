@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root "application#request"
-  post "/", to: "application#request"
+  root "application#message"
+  post "/", to: "application#message"
 end
