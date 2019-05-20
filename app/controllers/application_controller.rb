@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
       render plain: "#{ENV["VK_CONFIRM"]}"
       return
     when "message_new"
-      VKBot.answer { |message| "#{message}? Хорошо сказано"}
+      answer { |message| "#{message}? Хорошо сказано"}
       render status: :ok, plain: "ok"
     end
   end
