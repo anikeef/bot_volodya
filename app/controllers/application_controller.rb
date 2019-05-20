@@ -11,11 +11,15 @@ class ApplicationController < ActionController::API
       return
     when "message_new"
       answer do |message|
+        random_word = message.split(" ").sample
         ["#{message}? Хороший вопрос",
-         "Что значит \"#{message.split(" ").sample}\"?",
+         "Что значит \"#{random_word}\"?",
          "\"#{message}\"... Хорошо сказано",
          "#{message}? Хм, никогда об этом не думал",
-         "Я тоже думаю, что #{message.split(" ").sample}"].sample
+         "Я тоже думаю, что #{random_word}",
+         "Можно поподробнее про \"#{random_word}\"?",
+         "Кстати насчет \"#{random_word}\"... Это долгая история",
+         "Почему #{random_word}?"].sample
       end
       render status: :ok, plain: "ok"
     end
