@@ -12,9 +12,10 @@ class ApplicationController < ActionController::API
     when "message_new"
       answer do |message|
         ["#{message}? Хороший вопрос",
-         "Что такое \"#{message}\"?",
+         "Что значит \"#{message.split(" ").sample}\"?",
          "\"#{message}\"... Хорошо сказано",
-         "Насчет \"#{message}\"... Это долгая история"].sample
+         "#{message}? Хм, никогда об этом не думал",
+         "Я тоже думаю, что #{message.split(" ").sample}"].sample
       end
       render status: :ok, plain: "ok"
     end
